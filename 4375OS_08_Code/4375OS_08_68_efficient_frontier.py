@@ -7,9 +7,10 @@
   email    : yany@canisius.edu
              paulyxy@hotmail.com
 """
-from matplotlib.finance import quotes_historical_yahoo
+from matplotlib.finance import quotes_historical_yahoo_ochl
 import numpy as np
 import pandas as pd
+from math import log
 from numpy.linalg import inv, pinv 
 # Step 1: input area
 begYear,endYear = 2001,2013
@@ -17,7 +18,7 @@ stocks=['IBM','WMT','AAPL','C','MSFT']
 # Step 2: define a few functions
 #         function 1
 def ret_monthly(ticker):
-    x = quotes_historical_yahoo(ticker,(begYear,1,1),(endYear,12,31),asobject=True,adjusted=True)
+    x = quotes_historical_yahoo_ochl(ticker,(begYear,1,1),(endYear,12,31),asobject=True,adjusted=True)
     logret=log(x.aclose[1:]/x.aclose[:-1])
     date=[]
     d0=x.date

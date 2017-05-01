@@ -9,14 +9,14 @@
 """
 
 from matplotlib.pyplot import *
-from matplotlib.finance import quotes_historical_yahoo
+from matplotlib.finance import quotes_historical_yahoo_ochl
 import numpy as np
 import matplotlib.mlab as mlab
 
 ticker='IBM'
 begdate=(2013,1,1)
 enddate=(2013,11,9)
-p = quotes_historical_yahoo(ticker, begdate, enddate,asobject=True, adjusted=True)
+p = quotes_historical_yahoo_ochl(ticker, begdate, enddate,asobject=True, adjusted=True)
 ret = (p.open[1:] - p.open[:-1])/p.open[1:]
 [n,bins,patches] = hist(ret, 100)
 mu = np.mean(ret)

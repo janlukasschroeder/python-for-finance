@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 import scipy as sp
 from scipy.optimize import fmin
+import math
 # Step 1: input area
 ticker=('IBM','WMT','C')   # tickers
 begdate=(1990,1,1)         # beginning date 
